@@ -7,7 +7,7 @@ helmCrds: false
 helmName: nginx-ingress
 helmRelease: nginx-external
 helmRepo: https://helm.nginx.com/stable
-helmValues: ''
+helmValues: 'helm/values.yaml'
 helmVersion: 1.0.2
 ingSecret: ''
 ingress: false
