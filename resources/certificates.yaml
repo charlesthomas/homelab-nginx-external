@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  annotations:
+  name: crt.lol
+  namespace: nginx-external
+spec:
+  commonName: '*.crt.lol'
+  dnsNames:
+  - '*.crt.lol'
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-production
+  secretName: crt.lol
