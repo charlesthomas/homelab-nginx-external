@@ -1,4 +1,4 @@
-_commit: v1.6.5-3-g5fda948
+_commit: v1.8.1
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: certificates.yaml
 backups: false
@@ -7,9 +7,11 @@ helmCrds: false
 helmName: nginx-ingress
 helmRelease: nginx-external
 helmRepo: https://helm.nginx.com/stable
-helmValues: 'helm/values.yaml'
+helmValues: helm/values.yaml
 helmVersion: 1.0.2
-ingSecret: ''
+homepageEnabled: true
+ingHost: nginx-external.crt.house
+ingName: nginx-external
 ingress: false
 labels: |-
   app.kubernetes.io/instance: external
