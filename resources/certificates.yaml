@@ -12,17 +12,3 @@ spec:
     kind: ClusterIssuer
     name: letsencrypt-production
   secretName: crt.lol
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: cha.rlesthom.as
-  namespace: nginx-external
-spec:
-  commonName: 'cha.rlesthom.as'
-  dnsNames:
-  - 'cha.rlesthom.as'
-  issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt-staging
-  secretName: cha.rlesthom.as
