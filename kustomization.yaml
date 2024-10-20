@@ -20,4 +20,3 @@ resources:
 - resources/secrets.yaml
 - resources/service-accounts.yaml
 - resources/services.yaml
-- resources/validating-webhook-configurations.yaml

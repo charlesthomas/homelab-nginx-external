@@ -43,9 +43,6 @@ spec:
             - --controller-class=k8s.io/ingress-nginx
             - --ingress-class=nginx-external
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
-            - --validating-webhook=:8443
-            - --validating-webhook-certificate=/usr/local/certificates/cert
-            - --validating-webhook-key=/usr/local/certificates/key
             - --enable-metrics=false
           securityContext:
             runAsNonRoot: true
