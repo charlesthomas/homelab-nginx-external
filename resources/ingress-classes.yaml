@@ -9,4 +9,4 @@ metadata:
     app.kubernetes.io/component: controller
   name: nginx-external
 spec:
-  controller: k8s.io/ingress-nginx
+  controller: k8s.io/ingress-nginx-external
