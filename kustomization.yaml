@@ -5,9 +5,11 @@ namespace: nginx-external
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-nginx-external
-commonLabels:
-  app.kubernetes.io/instance: external
-  app.kubernetes.io/name: nginx-ingress
+labels:
+- includeSelectors: true
+  pairs:
+    app.kubernetes.io/instance: external
+    app.kubernetes.io/name: nginx-ingress
 
 resources:
 - resources/certificates.yaml
@@ -19,3 +21,24 @@ resources:
 - resources/secrets.yaml
 - resources/service-accounts.yaml
 - resources/services.yaml
+
+patches:
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: all
+      namespace: nginx-external
+      annotations:
+        reloader.stakater.com/auto: "true"
+  target:
+    kind: Deployment
+
+configMapGenerator:
+- name: grafana-dashboard-nginx-external
+  files:
+  - grafana/nginx-external.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"
